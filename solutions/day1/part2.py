@@ -3,11 +3,10 @@ from more_itertools import sliding_window
 
 def main(input_lines=None):
     result = 0
-    for window in sliding_window(input_lines, 4):
-        if window[0] < window[3]:
+    window_size = 4
+    for window in sliding_window(input_lines, window_size):
+        if window[0] < window[window_size - 1]:
             result += 1
-        else:
-            print(window)
     return result
 
 
