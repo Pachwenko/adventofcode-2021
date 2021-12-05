@@ -1,9 +1,14 @@
+import matplotlib.pyplot as plt
+
+
 ADD_X = "forward"
 ADD_Y = "down"  # this is because we are counting "depth"
 SUB_Y = "up"
 
 
-def main(input_lines):
+def main(input_lines, save_plot=False):
+    x_plots = []
+    y_plots = []
     x = 0
     y = 0
     for line in input_lines:
@@ -16,7 +21,15 @@ def main(input_lines):
             y += value
         if operation == SUB_Y:
             y -= value
-    return x * y
+        y_plots.append(y)
+        x_plots.append(x)
+    if save_plot:
+        # needs graphic capabilities
+        plt.plot(x_plots, y_plots)
+        plt.xlabel('Distance')
+        plt.ylabel('Depth')
+        plt.savefig('solutions/day2/part1.png')
+    return x_plots[-1] * y_plots[-1]
 
 
 def test_example():
@@ -34,4 +47,4 @@ def test_example():
 def test_real_data():
     with open('solutions/day2/input.txt') as f:
         input_lines = f.readlines()
-        assert 1813801 == main(input_lines)
+        assert 1813801 == main(input_lines, save_plot=True)
