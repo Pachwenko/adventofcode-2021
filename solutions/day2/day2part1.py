@@ -19,7 +19,7 @@ def main(input_lines):
     return x * y
 
 
-def test_day2_simple():
+def test_example():
     input_lines = [
         "forward 5",
         "down 5",

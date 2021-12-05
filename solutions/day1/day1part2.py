@@ -10,7 +10,7 @@ def main(input_lines=None):
     return result
 
 
-def test_day1_simple():
+def test_example():
     input_lines = [
         "199",
         "200",
